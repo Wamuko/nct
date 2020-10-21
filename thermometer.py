@@ -34,17 +34,16 @@ try:
     img = img[:, :, ::-1].copy()
 
     plt.subplot(1, 2, 1)
-    fig = plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic", vmin=27, vmax=30)
+    fig = plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic", vmin=min(min(sensor.pixels)), vmax=max(max(sensor.pixels)))
     plt.colorbar()
 
     plt.subplot(1, 2, 2)
-    plt.imshow(img)
     plt.text(0, 0, str(max_temp) + 'deg', size=20, color="red")
-    plt.savefig("img.png")
 
     plt.draw()
+    plt.savefig("img.png")
 
-    plt.pause(0.01)
+    plt.pause(0.03)
     plt.clf()
 
 except KeyboardInterrupt:
