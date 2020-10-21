@@ -11,6 +11,7 @@ import picamera.array
 import matplotlib.pyplot as plt
 
 plt.ion()
+fig = plt.figure()
 plt.subplots(figsize=(8, 4))
 
 # I2Cバスの初期化
@@ -35,7 +36,7 @@ try:
     img = img[:, :, ::-1].copy()
 
     plt.subplot(1, 2, 1)
-    fig = plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic", vmin=27, vmax=30)
+    plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic", vmin=27, vmax=30)
     plt.colorbar()
 
     plt.subplot(1, 2, 2)
