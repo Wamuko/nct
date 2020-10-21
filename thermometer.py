@@ -11,7 +11,6 @@ import picamera.array
 import matplotlib.pyplot as plt
 
 plt.ion()
-# plt.figure()
 plt.subplots(figsize=(8, 4))
 
 # I2Cバスの初期化
@@ -40,13 +39,16 @@ try:
     plt.colorbar()
 
     plt.subplot(1, 2, 2)
-    plt.imshow(img)
+
+    # GUIがないので、画像は保存するだけにする
+    # plt.imshow(img)
     plt.text(0, 0, str(max_temp) + 'deg', size=20, color="red")
+    fig.savefig("img.png")
 
-    plt.draw()
+    # plt.draw()
 
-    plt.pause(0.01)
-    plt.clf()
+    # plt.pause(0.01)
+    # plt.clf()
 
 except KeyboardInterrupt:
     print("done")
