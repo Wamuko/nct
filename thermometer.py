@@ -29,27 +29,23 @@ try:
 
     max_temp = max(max(sensor.pixels))
     print(max_temp)
-
     img0 = cv2.imread('./tmp.jpg')
     img = img0[0:240, 41:280]
     img = img[:, :, ::-1].copy()
 
-    fig = plt.figure()
     plt.subplot(1, 2, 1)
-    plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic", vmin=27, vmax=30)
+    fig = plt.imshow(sensor.pixels, cmap="inferno", interpolation="bicubic", vmin=27, vmax=30)
     plt.colorbar()
 
     plt.subplot(1, 2, 2)
-
-    # GUIがないので、画像は保存するだけにする
     plt.imshow(img)
     plt.text(0, 0, str(max_temp) + 'deg', size=20, color="red")
-    fig.savefig("img.png")
+    plt.savefig("img.png")
 
-    # plt.draw()
+    plt.draw()
 
-    # plt.pause(0.01)
-    # plt.clf()
+    plt.pause(0.01)
+    plt.clf()
 
 except KeyboardInterrupt:
     print("done")
