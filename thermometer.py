@@ -41,6 +41,7 @@ try:
         plt.subplot(1, 2, 2)
         plt.text(0, 0, str(max_temp) + 'deg', size=20, color="red")
         plt.savefig("img.png")
+        plt.pause(0.01)
         plt.clf()
 
 except KeyboardInterrupt:
