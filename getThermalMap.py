@@ -49,7 +49,7 @@ def main():
             try:
                 float(temp)
                 isTmp = True
-            except ValueError:
+            except:
                 pass
             temperature = float(temp)
         file = open(path + 'correct.csv', 'w')
