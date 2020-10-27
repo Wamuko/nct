@@ -30,7 +30,7 @@ try:
     i = 0
     while i < 100:
         max_temp = max(max(sensor.pixels))
-        w.writerow(str(max_temp))
+        w.writerow([str(max_temp)])
         print(str(i) + " : " + str(max_temp))
         i += 1
 
