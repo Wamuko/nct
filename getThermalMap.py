@@ -60,7 +60,7 @@ def main():
 
 # csv以下の数値フォルダ名より今回のフォルダ名を振る&作る
 def set_folder_name():
-    ls = []
+    ls = [0]
     for f in glob.glob('csv/*'):
         name = os.path.split(f)[1]
         if not name.isdecimal():
