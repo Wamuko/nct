@@ -22,9 +22,9 @@ try:
     # センサーの初期化待ち
     time.sleep(.1)
 
-    if os.path.isdir('/csv'):
-        os.mkdir('/csv')
-    file = open(str(datetime.datetime) + '.csv', 'w')
+    if os.path.isdir('csv'):
+        os.mkdir('csv')
+    file = open(str(datetime.datetime.now()) + '.csv', 'w')
     w = csv.writer(file)
 
     i = 0
