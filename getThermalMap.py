@@ -46,8 +46,11 @@ def main():
         while not isTmp:
             print("Input your body temperature.")
             temp = input()
-            if temp.isdecimal():
+            try:
+                float(temp)
                 isTmp = True
+            except ValueError:
+                pass
             temperature = float(temp)
         file = open(path + 'correct.csv', 'w')
         w = csv.writer(file)
