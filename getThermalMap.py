@@ -1,7 +1,9 @@
 import time
 import busio
 import board
-import cv2
+import csv
+import os
+import datetime
 
 import adafruit_amg88xx
 
@@ -20,9 +22,17 @@ try:
     # センサーの初期化待ち
     time.sleep(.1)
 
-    while True:
+    if os.path.isdir('/csv'):
+        os.mkdir('/csv')
+    file = open(str(datetime.datetime) + '.csv', 'w')
+    w = csv.writer(file)
+
+    i = 0
+    while i < 100:
         max_temp = max(max(sensor.pixels))
-        print("Max Temp: " + str(max_temp))
+        w.writerow(max_temp)
+        print(str(i) + " : " + str(max_temp))
+        i += 1
 
 except KeyboardInterrupt:
     print("done")
