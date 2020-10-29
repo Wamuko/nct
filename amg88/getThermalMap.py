@@ -6,8 +6,8 @@ import os
 import datetime
 import glob
 
+import numpy as np
 import adafruit_amg88xx
-
 import picamera
 import picamera.array
 
@@ -29,7 +29,8 @@ def main():
         time.sleep(.1)
 
         while True:
-            thermal_map = map(lambda n, l=calibrate_val: n - l, sensor.pixels)
+            f = np.vectorize(lambda n, l=calibrate_val: n - l)
+            thermal_map = f(sensor.pixels)
             print(thermal_map)
 
     except KeyboardInterrupt:
