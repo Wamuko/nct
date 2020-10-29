@@ -30,7 +30,7 @@ def main():
         # 観測フォルダ番号を振る
         path = set_folder_name()
 
-        file = open(path + 'data.csv', 'w')
+        file = open(path + 'temperature.csv', 'w')
         w = csv.writer(file)
 
         i = 0
@@ -49,12 +49,16 @@ def main():
             try:
                 float(temp)
                 isTmp = True
-            except:
+            except ValueError:
                 pass
             temperature = float(temp)
         file = open(path + 'correct.csv', 'w')
         w = csv.writer(file)
         w.writerow([temperature])
+        file.close()
+        file = open(path + 'date.csv', 'w')
+        w = csv.writer(file)
+        w.writerow([str(datetime.datetime.now())])
         file.close()
         print("Result saved at " + path)
     except KeyboardInterrupt:
