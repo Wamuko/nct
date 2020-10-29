@@ -19,6 +19,8 @@ for d in glob.iglob('csv/*'):
         avg = float(f.read())
     calibrate.append(avg - correct)
 
+if os.path.isdir('conf'):
+    os.mkdir('conf')
 if os.path.exists('conf/calibration.txt'):
     os.remove('conf/calibration.txt')
 with open('conf/calibration.txt', 'w') as f:
