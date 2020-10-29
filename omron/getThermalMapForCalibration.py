@@ -1,6 +1,3 @@
-import time
-import busio
-import board
 import csv
 import os
 import datetime
