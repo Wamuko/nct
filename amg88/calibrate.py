@@ -23,7 +23,7 @@ for d in glob.iglob('csv/*'):
         exit()
     calibrate.append(avg - correct)
 
-if os.path.isdir('conf'):
+if not os.path.isdir('conf'):
     os.mkdir('conf')
 if os.path.exists('conf/calibration.txt'):
     os.remove('conf/calibration.txt')
