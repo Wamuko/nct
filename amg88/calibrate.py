@@ -13,15 +13,19 @@ calibrate = []
 for d in glob.iglob('csv/*'):
     correct = 0
     avg = 0
-    with open(os.path.join(d, 'correct.csv'), 'r') as f:
-        correct = float(f.read())
-    with open(os.path.join(d, 'avg.txt'), 'r') as f:
-        avg = float(f.read())
+    try:
+        with open(os.path.join(d, 'correct.csv'), 'r') as f:
+            correct = float(f.read())
+        with open(os.path.join(d, 'avg.txt'), 'r') as f:
+            avg = float(f.read())
+    except:
+        print("getThermalMapForCalibration.pyを実行してから、calibrate.pyを実行してください。")
+        exit()
     calibrate.append(avg - correct)
 
 if os.path.isdir('conf'):
     os.mkdir('conf')
 if os.path.exists('conf/calibration.txt'):
     os.remove('conf/calibration.txt')
-with open('conf/calibration.txt', 'w') as f:
+with open('conf/calibration.txt', 'w+') as f:
     f.write(str(sum(calibrate) / len(calibrate)))
