@@ -27,5 +27,5 @@ if os.path.isdir('conf'):
     os.mkdir('conf')
 if os.path.exists('conf/calibration.txt'):
     os.remove('conf/calibration.txt')
-with open('conf/calibration.txt', 'w+') as f:
+with open('conf/calibration.txt', 'a+') as f:
     f.write(str(sum(calibrate) / len(calibrate)))
