@@ -27,7 +27,7 @@ def main():
         if os.path.isdir('conf'):
             with open('conf', 'r') as f:
                 calibrate_val = float(f.readline())
-
+        print("calibrated: " + str(calibrate_val))
         # センサーの初期化待ち
         time.sleep(.1)
 
