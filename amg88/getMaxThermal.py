@@ -24,8 +24,8 @@ def main():
         sensor = adafruit_amg88xx.AMG88XX(i2c_bus, addr=0x68)
         # キャリブレーションするための補正値を読み込む
         calibrate_val = 0
-        if os.path.isdir('conf'):
-            with open('conf', 'r') as f:
+        if os.path.isdir('conf') and os.path.exists('conf/calibration.txt'):
+            with open('conf/calibration.txt', 'r') as f:
                 calibrate_val = float(f.readline())
         print("calibrated: " + str(calibrate_val))
         # センサーの初期化待ち
