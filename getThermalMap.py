@@ -34,21 +34,26 @@ def main():
         w = csv.writer(file)
 
         i = 0
+        temp_ls = []
         while i < 100:
             max_temp = max(max(sensor.pixels))
+            temp_ls.append(max_temp)
             w.writerow([str(max_temp)])
             print(str(i) + " : " + str(max_temp))
             i += 1
 
         file.close()
-        isTmp = False
+        with open(path + 'avg.txt', 'w') as f:
+            f.write(str(sum(temp_ls) / len(temp_ls)))
+
+        is_tmp = False
         temperature = 0
-        while not isTmp:
+        while not is_tmp:
             print("Input your body temperature.")
             temp = input()
             try:
                 float(temp)
-                isTmp = True
+                is_tmp = True
             except ValueError:
                 pass
             temperature = float(temp)
