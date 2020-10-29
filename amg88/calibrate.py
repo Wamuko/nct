@@ -19,6 +19,6 @@ for d in glob.iglob('csv/*'):
         avg = float(f.read())
     calibrate.append(avg - correct)
 
-os.remove('config/calibration.txt')
-with open('config/calibration.txt', 'w') as f:
+os.remove('conf/calibration.txt')
+with open('conf/calibration.txt', 'w') as f:
     f.write(str(sum(calibrate) / len(calibrate)))

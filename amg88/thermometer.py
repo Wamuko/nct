@@ -30,7 +30,7 @@ try:
 
         max_temp = max(max(sensor.pixels))
         print(max_temp)
-        img0 = cv2.imread('./tmp.jpg')
+        img0 = cv2.imread('tmp.jpg')
         img = img0[0:240, 41:280]
         img = img[:, :, ::-1].copy()
 
