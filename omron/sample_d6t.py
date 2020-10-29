@@ -10,12 +10,12 @@ import os
 import numpy as np
 
 # キャリブレーションするための補正値を読み込む
-    calibrate_val = 0
-    if os.path.isdir('conf') and os.path.exists('conf/calibration.txt'):
-        with open('conf/calibration.txt', 'r') as f:
-            calibrate_val = float(f.readline())
+calibrate_val = 0
+if os.path.isdir('conf') and os.path.exists('conf/calibration.txt'):
+    with open('conf/calibration.txt', 'r') as f:
+        calibrate_val = float(f.readline())
 
-    print("calibrated: " + str(calibrate_val))
+print("calibrated: " + str(calibrate_val))
 
 d6t = grove_d6t.GroveD6t()
 
