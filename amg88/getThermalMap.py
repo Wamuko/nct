@@ -22,8 +22,8 @@ def main():
         # センサーの初期化
         sensor = adafruit_amg88xx.AMG88XX(i2c_bus, addr=0x68)
         calibrate_val = 0
-        if os.path.isdir('conf'):
-            with open('conf', 'r') as f:
+        if os.path.isdir('conf') and os.path.exists('conf/calibration.txt'):
+            with open('conf/calibration.txt', 'r') as f:
                 calibrate_val = float(f.readline())
         # センサーの初期化待ち
         time.sleep(.1)
