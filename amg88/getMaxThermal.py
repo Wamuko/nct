@@ -34,7 +34,7 @@ def main():
         while True:
             f = np.vectorize(lambda n, l=calibrate_val: n - l)
             thermal_map = f(sensor.pixels)
-            print(max(max(thermal_map)))
+            print(np.max(thermal_map))
 
     except KeyboardInterrupt:
         print("done")
