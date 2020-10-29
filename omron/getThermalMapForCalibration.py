@@ -26,7 +26,7 @@ def main():
             tpn, tptat = d6t.readData()
             if tpn is None:
                 continue
-            max_temp = max(max(tpn))
+            max_temp = max(tpn)
             temp_ls.append(max_temp)
             w.writerow([str(max_temp)])
             print(str(i) + " : " + str(max_temp))
