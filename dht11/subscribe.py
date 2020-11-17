@@ -5,7 +5,7 @@ import sys
 args = sys.argv
 
 def print_msg(client, userdata, message):
-    print("%s : %s" % (message.topic, message.payload))
+    print("%s : %s" % (message.topic, str(message.payload.decode())))
 
 while True:
     subscribe.callback(print_msg, str(args[1]), hostname=str(args[2]))

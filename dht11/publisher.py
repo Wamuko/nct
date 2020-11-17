@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-import sdf
+import dht11
 import time
 import datetime
 import paho.mqtt.publish as publish
@@ -13,7 +13,7 @@ GPIO.setwarnings(True)
 GPIO.setmode(GPIO.BCM)
 
 # read data using pin 14
-instance = sdf.DHT11(pin=14)
+instance = dht11.DHT11(pin=14)
 
 try:
     while True:
